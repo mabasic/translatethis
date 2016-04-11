@@ -1,0 +1,21 @@
+#!/usr/bin/env php
+
+<?php
+
+use Symfony\Component\Console\Application;
+use Mabasic\TranslateThis\ExportCommand;
+
+if (file_exists(__DIR__ . '/vendor/autoload.php'))
+{
+    // For development purposes
+    require __DIR__ . '/vendor/autoload.php';
+}
+else
+{
+    // This is important because of bin executable
+    require __DIR__ . '/../../autoload.php';
+}
+
+$app = new Application('Translate This', '0.1.0');
+$app->add(new ExportCommand);
+$app->run();
